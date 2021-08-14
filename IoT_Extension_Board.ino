@@ -50,11 +50,6 @@ char pass[] = "Hotspot@123";
 
 int onSwitches = 0;
 
-BLYNK_CONNECTED()
-{
-    Blynk.syncAll();
-}
-
 BLYNK_WRITE(V0)       // Button Widget is writing to Pin V0
 {
   if(param.asInt())   // As active low pin, so 1 means all ports off
