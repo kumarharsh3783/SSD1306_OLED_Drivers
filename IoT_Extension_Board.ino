@@ -157,7 +157,7 @@ void setup()
 void loop()
 {
   Blynk.run();
-  if(onSwitches == 4)
+  if(onSwitches != 0)
   {
     Blynk.virtualWrite(V0,0);   // V0 on
   }
