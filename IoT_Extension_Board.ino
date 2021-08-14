@@ -55,6 +55,33 @@ BLYNK_CONNECTED()
     Blynk.syncAll();
 }
 
+BLYNK_WRITE(V0)       // Button Widget is writing to Pin V0
+{
+  if(param.asInt())   // As active low pin, so 1 means all ports off
+  {
+    digitalWrite(D1,HIGH);
+    Blynk.virtualWrite(V1,1);
+    digitalWrite(D2,HIGH);
+    Blynk.virtualWrite(V2,1);
+    digitalWrite(D5,HIGH);
+    Blynk.virtualWrite(V3,1);
+    digitalWrite(D6,HIGH);
+    Blynk.virtualWrite(V4,1);
+    onSwitches = 0;
+  }
+  else                // As active low pin, so 0 means all ports on
+  {
+    digitalWrite(D1,LOW);
+    Blynk.virtualWrite(V1,0);
+    digitalWrite(D2,LOW);
+    Blynk.virtualWrite(V2,0);
+    digitalWrite(D5,LOW);
+    Blynk.virtualWrite(V3,0);
+    digitalWrite(D6,LOW);
+    Blynk.virtualWrite(V4,0);
+    onSwitches = 4;
+  }
+}
 
 BLYNK_WRITE(V1)       // Button Widget is writing to Pin V1
 {
